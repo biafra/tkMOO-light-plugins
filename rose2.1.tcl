@@ -36,6 +36,10 @@
 # o     self is always present in 'location'.  don't print our
 #	username in another room if we're obviously 'here' instead, regardless
 #	of what the who information may say.
+# # # # # # # # # # #
+# Biafra:
+#        o updated the use of tkDarken for modern wish versions
+# # # # # # # # # # #
 
 client.register rose2 client_connected
 client.register rose2 client_disconnected
@@ -335,6 +339,7 @@ proc rose2.set_text text {
 }
 
 proc rose2.create {} {
+    global tcl_version
     set r .rose2
     frame $r
     window.toolbar_look $r
@@ -374,8 +379,13 @@ proc rose2.create {} {
     set green_colour [$r.c cget -bg]
     set grey_colour [$r cget -bg]
 
-    set dark_green [tkDarken $green_colour 70]
-    set light_green [tkDarken $green_colour 130]
+    if { $tcl_version < 8.4 } {
+        set dark_green [tkDarken $green_colour 70]
+        set light_green [tkDarken $green_colour 130]
+    } else {
+        set dark_green [::tk::Darken $green_colour 70]
+        set light_green [::tk::Darken $green_colour 130]
+    }
 
     eval $r.c create polygon -10 -10 $rose2_point(0) $rose2_point(12) -10 100 -tags BORDER -fill $grey_colour -outline $grey_colour
     eval $r.c create polygon 200 -10 $rose2_point(3) $rose2_point(15) 200 100 -tags BORDER -fill $grey_colour -outline $grey_colour
@@ -417,11 +427,17 @@ proc rose2.create {} {
 }
 
 proc rose2.look_like colour {
+    global tcl_version
     set r .rose2
     $r.c configure -bg $colour
 
-    set dark_colour [tkDarken $colour 70]
-    set light_colour [tkDarken $colour 130]
+    if { $tcl_version < 8.4 } {
+        set dark_colour [tkDarken $colour 70]
+        set light_colour [tkDarken $colour 130]
+    } else {
+        set dark_colour [::tk::Darken $colour 70]
+        set light_colour [::tk::Darken $colour 130]
+    }
 
     $r.c itemconfigure DG3D -fill $dark_colour
     $r.c itemconfigure LG3D -fill $light_colour

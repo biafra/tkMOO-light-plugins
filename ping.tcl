@@ -72,6 +72,11 @@
 
 # we call mcp21.register_internal with is itself initialised with
 # priority 50, we need to wait for it to be initialised.
+# # # # # # #
+# 2005.03.20 Biafra: changed .create to not expand and work well with
+#                    other statusbar items.
+# # # # # # #
+
 client.register ping start 60
 client.register ping client_connected 90
 client.register ping client_disconnected
@@ -79,7 +84,7 @@ client.register ping client_disconnected
 preferences.register ping {Statusbar Settings} {
     { {directive UsePing}
         {type boolean}
-        {default Off}
+        {default On}
         {display "Ping server"} }
 } 
 
@@ -255,7 +260,7 @@ proc ping.create {} {
         pack configure $f.r.$i -side left
     }
 
-    pack $f -fill y -expand 1
+    pack $f -fill y -expand 0 -side right
 
     set ping_unlit [$f.r.1 cget -bg]
 
