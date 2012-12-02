@@ -1,10 +1,23 @@
 #
+# This plugin implements a subset of the package "dns-com-vmoo-mmedia"
+# with the following messages:
+#
+#   C->S:   dns-com-vmoo-mmedia-accept
+#   C->S:   dns-com-vmoo-mmedia-ack-stage
+#   C->S:   dns-com-vmoo-mmedia-ack-done
+#   S->C:   dns-com-vmoo-mmedia-play
+#   S->C:   dns-com-vmoo-mmedia-show
+#
+# It depends on plugin "rose2.1.tcl" to display images (-show)
+#
 # You should install the snack extention
 # http://www.speech.kth.se/snack/download.html
 # and
 # http://www.muonics.com/FreeStuff/TkPNG/
 #
 # mmedia v0.1 - 2007.04.05 
+#
+# Biafra @ MOOsaico
 
 # we need to wait for mcp21 to setup
 client.register mmedia start 61
