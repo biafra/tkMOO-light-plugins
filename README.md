@@ -23,6 +23,11 @@ Plugins
 > You should install the [Snack](http://www.speech.kth.se/snack/download.html)
 > TCL extention to support sound and the
 > [TkPNG](http://www.muonics.com/FreeStuff/TkPNG/) to support images.
+>
+> **`autoupdate.tcl`**
+>
+> A system to auto update plugins. It will check an online file with versions
+> and get the new ones.
 
 AWNS plugins update
 -------------------
