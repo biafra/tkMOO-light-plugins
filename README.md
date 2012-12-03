@@ -7,13 +7,17 @@ New tkMOO-light plugins and updates/changes to some AWNS originals.
 [MCP/2.1](http://www.moo.mud.org/mcp2/) and comes with several
 [plugins](http://www.awns.com/tkMOO-light/plugins/).
 
+You need to install them in the tkMOO-light plugins directory.
+Open <u>`H`</u>`elp/Installed Plugins` to check where it is on your system.
+
 Plugins
 ---
 
 > **`client-info.tcl`**
 > 
 > Implements **`dns-com-vmoo-client`** which sends some client info to the MOO.
-> It lets the MOO server to know the client name and version, and the window horizontal and vertical size.
+> It lets the MOO server know the client name and version, and the window
+> horizontal and vertical size. Which is great to show proper formated text.
 > 
 > **`mmedia.tcl`**
 > 
@@ -27,7 +31,7 @@ Plugins
 > **`autoupdate.tcl`**
 >
 > A system to auto update plugins. It will check an online file with versions
-> and get the new ones.
+> and get the new ones right into your plugins directory.
 
 AWNS plugins update
 -------------------
